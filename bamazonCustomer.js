@@ -69,6 +69,7 @@ function customerOrder() {
       var stockQuantity = 0;
       var itemID;
       var totalPrice = 0;
+      var productSale = 0;
 
       connection.query(query, { item_id: inquirerResponse.product_id }, function(err, res) {
         if (err) throw err;
@@ -83,10 +84,14 @@ function customerOrder() {
             stockQuantity = res[i].stock_quantity - inquirerResponse.stock_quantity;
 
             totalPrice = inquirerResponse.stock_quantity * res[i].price;
+
+            productSale = res[i].product_sales + totalPrice;
           }
         }
         // update the database
         updateUnit(stockQuantity, itemID);
+        updateProductSale(productSale, itemID);
+
         // log the total price for user order
         console.log('Your total price of purchase is $' + totalPrice);
       });
@@ -100,6 +105,23 @@ function updateUnit(stockQuantity, itemID) {
     [
       {
         stock_quantity: stockQuantity
+      },
+      {
+        item_id: itemID
+      }
+    ],
+    function(err, res) {
+      if (err) throw err;
+    }
+  );
+}
+
+function updateProductSale(productSale, itemID) {
+  connection.query(
+    'UPDATE products SET ? WHERE ?',
+    [
+      {
+        product_sales: productSale
       },
       {
         item_id: itemID
