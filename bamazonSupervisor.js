@@ -53,7 +53,7 @@ function viewProductSales() {
     console.log(`| department_id | department_name | over_head_costs | product_sales | total_profit |`);
 
     for (var i = 0; i < res.length; i++) {
-      console.log('| ' + res[i].department_id + '             | ' + res[i].department_name + '     | ' + res[i].over_head_costs + '             | ' + res[i].product_sales + '        |    ' + res[i].total_profit);
+      console.log('| ' + res[i].department_id + '             | ' + res[i].department_name + '  | ' + res[i].over_head_costs + '   | ' + res[i].product_sales + '  | ' + res[i].total_profit);
     }
     console.log('-----------------------------------\n');
   });

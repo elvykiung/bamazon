@@ -202,7 +202,8 @@ function addNewItem() {
           product_name: inquirerResponse.product_name,
           department_name: inquirerResponse.department_name,
           price: inquirerResponse.product_price,
-          stock_quantity: inquirerResponse.stock_quantity
+          stock_quantity: inquirerResponse.stock_quantity,
+          product_sales: 0
         },
         function(err, res) {
           if (err) throw err;
