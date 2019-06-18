@@ -44,12 +44,24 @@ function customerOrder() {
       {
         name: 'product_id',
         type: 'input',
-        message: 'Which product ID number would you like to purchase?'
+        message: 'Which product ID number would you like to purchase?',
+        validate: function(value) {
+          if (isNaN(value) === false) {
+            return true;
+          }
+          return false;
+        }
       },
       {
         name: 'stock_quantity',
-        type: 'input',
-        message: 'How many unit would you like to purchase?'
+        type: 'number',
+        message: 'How many unit would you like to purchase?',
+        validate: function(value) {
+          if (isNaN(value) === false) {
+            return true;
+          }
+          return false;
+        }
       }
     ])
     .then(function(inquirerResponse) {
