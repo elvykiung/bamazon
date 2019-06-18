@@ -31,7 +31,7 @@ Manager able to selects options which action would like to take.
 
 - View Low Inventory
 
-![screenshot](./img/managerViewProducts.gif)
+![screenshot](https://github.com/elvykiung/bamazon/blob/master/img/ManagerViewProducts.gif?raw=true)
 
 - Add to Inventory
 
